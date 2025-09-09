@@ -87,7 +87,8 @@ body {
   display: flex;
   flex-direction: column;
   border-right: 1px solid var(--border-color);
-  transition: background-color 0.3s;
+  transition: all 0.3s ease-in-out; /* Animasyon eklendi */
+  flex-shrink: 0;
 }
 
 .sidebar-content {
@@ -181,6 +182,7 @@ body {
   border-radius: 50%;
   transition: background-color 0.2s, color 0.2s, border 0.2s;
   border: 2px solid transparent;
+  position: relative; /* Hatırlatıcı noktası için */
 }
 
 .calendar-day.empty {
@@ -253,12 +255,30 @@ body {
   flex-direction: column;
   padding: 30px;
   overflow-y: hidden;
+  position: relative; /* Sidebar toggle butonu için */
 }
 
 header {
   margin-bottom: 20px;
   position: relative;
   text-align: center;
+  display: flex; /* Buton ve başlıkları hizalamak için */
+  flex-direction: column;
+  align-items: center;
+}
+
+#sidebar-toggle-btn {
+  display: none; /* Varsayılan olarak gizli, mobil'de görünür */
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 10px;
 }
 
 #current-date-header {
@@ -372,6 +392,7 @@ header {
   justify-content: center;
   align-items: center;
   padding-top: 20px;
+  flex-shrink: 0;
 }
 
 .control-btn {
@@ -387,6 +408,7 @@ header {
   height: 60px;
   border-radius: 50%;
   font-size: 24px;
+  box-shadow: var(--shadow);
 }
 
 .modal-overlay {
@@ -416,7 +438,8 @@ header {
 .modal-buttons {
   display: flex;
   justify-content: center;
-  gap: 55px;
+  gap: 25px;
+  margin-top: 20px; /* Butonların üstüne biraz boşluk ekler */
 }
 
 .modal-button {
@@ -441,4 +464,147 @@ header {
 
 .hidden {
   display: none !important;
+}
+
+/* =========================================== */
+/* === MOBİL UYUMLULUK (MEDIA QUERIES) === */
+/* =========================================== */
+
+/* Tabletler ve Küçük Laptoplar (Max 768px genişlik) */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 300px;
+    position: fixed;
+    height: 100vh;
+    z-index: 100;
+    transform: translateX(-100%); /* Başlangıçta gizle */
+    box-shadow: var(--shadow);
+  }
+
+  .sidebar.open {
+    transform: translateX(0); /* Açıldığında göster */
+  }
+
+  .app-container {
+    flex-direction: column; /* Mobil'de dikey sıralama */
+  }
+
+  .main-content {
+    padding: 15px; /* Daha küçük padding */
+    overflow-y: auto; /* Ana içerik kaydırılabilir */
+    position: relative;
+  }
+
+  header {
+    flex-direction: row; /* Başlık ve saat yan yana */
+    justify-content: space-between; /* Boşlukları ayır */
+    align-items: center;
+    margin-bottom: 15px;
+    text-align: left;
+  }
+
+  #sidebar-toggle-btn {
+    display: block; /* Menü butonunu göster */
+    position: static; /* Static konuma getir */
+    transform: none;
+    order: -1; /* En başa al */
+    margin-right: 15px;
+  }
+
+  #current-date-header {
+    font-size: 1.8rem; /* Daha küçük font */
+    margin: 0;
+  }
+
+  #live-clock {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  #reminder-display-container {
+    position: static; /* Statik konuma getir */
+    justify-content: flex-start;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  #notes-container {
+    padding-right: 0; /* Sağ padding'i kaldır */
+  }
+
+  .note-content {
+    min-height: 80px; /* Notların minimum yüksekliğini azalt */
+  }
+
+  .action-buttons {
+    padding-top: 15px;
+    position: sticky; /* Sabit durmasını sağlar */
+    bottom: 0;
+    background-color: var(--primary-bg);
+    z-index: 50;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    padding-bottom: 15px;
+  }
+
+  #add-note-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .modal {
+    padding: 20px;
+  }
+
+  .modal-buttons {
+    flex-direction: column; /* Butonları alt alta sırala */
+    gap: 10px;
+  }
+
+  .modal-button {
+    width: 100%;
+  }
+}
+
+/* Küçük Telefonlar (Max 480px genişlik) */
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 100%; /* Tam genişlikte açılır */
+  }
+
+  header {
+    padding-bottom: 10px;
+  }
+
+  #current-date-header {
+    font-size: 1.5rem;
+  }
+
+  #live-clock {
+    font-size: 1rem;
+  }
+
+  #sidebar-toggle-btn {
+    font-size: 1.3rem;
+    margin-right: 10px;
+  }
+
+  .calendar-weekdays,
+  .calendar-days {
+    gap: 3px;
+    font-size: 0.8em;
+  }
+
+  .calendar-day {
+    padding: 6px 0;
+  }
+
+  .note-content {
+    font-size: 0.9rem;
+  }
+
+  .reminder-tag {
+    font-size: 0.8em;
+    padding: 4px 8px;
+  }
 }
