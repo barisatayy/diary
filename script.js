@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeSwatches = document.querySelectorAll(".swatch");
   const liveClock = document.getElementById("live-clock");
   const sidebarDateHeader = document.getElementById("sidebar-date-header");
+  const sidebarToggleBtn = document.getElementById("sidebar-toggle-btn"); // Yeni
+  const sidebar = document.querySelector(".sidebar"); // Yeni
 
   let currentViewDateStr;
   let calendarDate = new Date();
@@ -182,6 +184,10 @@ document.addEventListener("DOMContentLoaded", () => {
       renderCalendar();
     } else {
       renderNotesForDate(dateStr);
+      // Mobil'de gün seçildikten sonra sidebar'ı kapat
+      if (window.innerWidth <= 768) {
+        sidebar.classList.remove("open");
+      }
     }
   }
 
@@ -388,6 +394,11 @@ document.addEventListener("DOMContentLoaded", () => {
       swatch.addEventListener("click", () => {
         saveAndApplyTheme(swatch.dataset.theme);
       });
+    });
+
+    // Yeni: Sidebar açma/kapama butonu
+    sidebarToggleBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
     });
 
     const savedTheme = localStorage.getItem(DBNames.THEME) || "dark-blue";
