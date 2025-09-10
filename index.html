@@ -1,125 +1,76 @@
 <!DOCTYPE html>
 <html lang="tr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Günlük</title>
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='15' y='15' width='70' height='80' rx='8' fill='%234a90e2'/%3E%3Cline x1='30' y1='35' x2='70' y2='35' stroke='%23fff' stroke-width='5'/%3E%3Cline x1='30' y1='50' x2='70' y2='50' stroke='%23fff' stroke-width='5'/%3E%3Cline x1='30' y1='65' x2='55' y2='65' stroke='%23fff' stroke-width='5'/%3E%3C/svg%3E"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
-  </head>
-  <body>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='15' y='15' width='70' height='80' rx='8' fill='%234a90e2'/%3E%3Cline x1='30' y1='35' x2='70' y2='35' stroke='%23fff' stroke-width='5'/%3E%3Cline x1='30' y1='50' x2='70' y2='50' stroke='%23fff' stroke-width='5'/%3E%3Cline x1='30' y1='65' x2='55' y2='65' stroke='%23fff' stroke-width='5'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
     <div class="app-container">
-      <aside class="sidebar">
-        <div class="sidebar-content">
-          <div class="calendar-container">
-            <h2 id="sidebar-date-header"></h2>
-            <div class="calendar-header">
-              <button id="prev-month-btn">
-                <i class="fa-solid fa-chevron-left"></i>
-              </button>
-              <h3 id="month-year-header"></h3>
-              <button id="next-month-btn">
-                <i class="fa-solid fa-chevron-right"></i>
-              </button>
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div class="calendar-container">
+                    <h2 id="sidebar-date-header"></h2>
+                    <div class="calendar-header">
+                        <button id="prev-month-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                        <h3 id="month-year-header"></h3>
+                        <button id="next-month-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div class="calendar-weekdays">
+                        <div>Pzt</div><div>Sal</div><div>Çar</div><div>Per</div><div>Cum</div><div>Cmt</div><div>Paz</div>
+                    </div>
+                    <div id="calendar-days" class="calendar-days"></div>
+                </div>
+                <div class="reminder-container">
+                    <h2>Hatırlatıcı Ekle</h2>
+                    <input type="text" id="reminder-text" placeholder="Gelecek için hatırlatıcı...">
+                    <p class="reminder-info">Metni yazıp takvimden gelecek bir tarih seçin.</p>
+                    <button id="set-reminder-btn">Hatırlatıcıyı Kur</button>
+                </div>
             </div>
-            <div class="calendar-weekdays">
-              <div>Pzt</div>
-              <div>Sal</div>
-              <div>Çar</div>
-              <div>Per</div>
-              <div>Cum</div>
-              <div>Cmt</div>
-              <div>Paz</div>
+            <div class="theme-container">
+                <h2>Tema Seçimi</h2>
+                <div class="theme-swatches">
+                    <div class="swatch" data-theme="dark-blue" style="--swatch-color: #4a90e2;"></div>
+                    <div class="swatch" data-theme="dark-green" style="--swatch-color: #27ae60;"></div>
+                    <div class="swatch" data-theme="dark-purple" style="--swatch-color: #8e44ad;"></div>
+                    <div class="swatch" data-theme="dark-red" style="--swatch-color: #e94560;"></div>
+                    <div class="swatch" data-theme="dark-pink" style="--swatch-color: #d83a8b;"></div>
+                    <div class="swatch" data-theme="light-white" style="--swatch-color: #f4f7f9; border: 1px solid #ccc;"></div>
+                    <div class="swatch" data-theme="oled-black" style="--swatch-color: #000000; border: 1px solid #444;"></div>
+                </div>
             </div>
-            <div id="calendar-days" class="calendar-days"></div>
-          </div>
-          <div class="reminder-container">
-            <h2>Hatırlatıcı Ekle</h2>
-            <input
-              type="text"
-              id="reminder-text"
-              placeholder="Gelecek için hatırlatıcı..."
-            />
-            <p class="reminder-info">
-              Metni yazıp takvimden gelecek bir tarih seçin.
-            </p>
-            <button id="set-reminder-btn">Hatırlatıcıyı Kur</button>
-          </div>
-        </div>
-        <div class="theme-container">
-          <h2>Tema Seçimi</h2>
-          <div class="theme-swatches">
-            <div
-              class="swatch"
-              data-theme="dark-blue"
-              style="--swatch-color: #4a90e2"
-            ></div>
-            <div
-              class="swatch"
-              data-theme="dark-green"
-              style="--swatch-color: #27ae60"
-            ></div>
-            <div
-              class="swatch"
-              data-theme="dark-purple"
-              style="--swatch-color: #8e44ad"
-            ></div>
-            <div
-              class="swatch"
-              data-theme="dark-red"
-              style="--swatch-color: #e94560"
-            ></div>
-            <div
-              class="swatch"
-              data-theme="dark-pink"
-              style="--swatch-color: #d83a8b"
-            ></div>
-            <div
-              class="swatch"
-              data-theme="light-white"
-              style="--swatch-color: #f4f7f9; border: 1px solid #ccc"
-            ></div>
-            <div
-              class="swatch"
-              data-theme="oled-black"
-              style="--swatch-color: #000000; border: 1px solid #444"
-            ></div>
-          </div>
-        </div>
-      </aside>
+        </aside>
 
-      <main class="main-content">
-        <header>
-          <button id="sidebar-toggle-btn" class="control-btn">
-            <i class="fa-solid fa-bars"></i>
-          </button>
-          <h1 id="current-date-header"></h1>
-          <h3 id="live-clock"></h3>
-          <div id="reminder-display-container"></div>
-        </header>
-        <div id="notes-container"></div>
-        <div class="action-buttons">
-          <button id="add-note-btn" class="control-btn" title="Yeni Not Ekle">
-            <i class="fa-solid fa-plus"></i>
-          </button>
-        </div>
-      </main>
+        <main class="main-content">
+            <header>
+                <button id="sidebar-toggle-btn" class="control-btn"><i class="fa-solid fa-bars"></i></button>
+                <div class="header-center">
+                    <h1 id="current-date-header"></h1>
+                    <h3 id="live-clock"></h3>
+                    <p id="connecting-night-notice" class="hidden"></p>
+                </div>
+                <div id="reminder-display-container"></div>
+            </header>
+            <div id="notes-container"></div>
+            <div class="action-buttons">
+                <button id="add-note-btn" class="control-btn" title="Yeni Not Ekle">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+        </main>
     </div>
 
     <div id="modal-overlay" class="modal-overlay hidden">
-      <div id="modal" class="modal">
-        <p id="modal-message"></p>
-        <div id="modal-buttons"></div>
-      </div>
+        <div id="modal" class="modal">
+            <p id="modal-message"></p>
+            <div id="modal-buttons"></div>
+        </div>
     </div>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
