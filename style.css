@@ -1,610 +1,611 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 :root {
-  --primary-bg: #1a1a2e;
-  --secondary-bg: #1e1e3f;
-  --sidebar-bg: #24243e;
-  --text-color: #e0e0e0;
-  --text-muted: #8a8a9e;
-  --accent-color: #4a90e2;
-  --danger-color: #e94560;
-  --success-color: #27ae60;
-  --warning-color: #f1c40f;
-  --shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  --border-color: #3a3a5e;
+    --primary-bg: #1a1a2e;
+    --secondary-bg: #1e1e3f;
+    --sidebar-bg: #24243e;
+    --text-color: #e0e0e0;
+    --text-muted: #8a8a9e;
+    --accent-color: #4a90e2;
+    --danger-color: #e94560;
+    --success-color: #27ae60;
+    --warning-color: #f1c40f;
+    --shadow: 0 4px 15px rgba(0,0,0,0.4);
+    --border-color: #3a3a5e;
 }
 
 .theme-dark-green {
-  --primary-bg: #1d2a21;
-  --secondary-bg: #28382c;
-  --sidebar-bg: #2f4f3a;
-  --accent-color: #2ecc71;
-  --border-color: #4a6a5a;
+    --primary-bg: #1d2a21;
+    --secondary-bg: #28382c;
+    --sidebar-bg: #2f4f3a;
+    --accent-color: #2ecc71;
+    --border-color: #4a6a5a;
 }
 .theme-dark-purple {
-  --primary-bg: #2a1d2a;
-  --secondary-bg: #382838;
-  --sidebar-bg: #4f2f4f;
-  --accent-color: #9b59b6;
-  --border-color: #6a4a6a;
+    --primary-bg: #2a1d2a;
+    --secondary-bg: #382838;
+    --sidebar-bg: #4f2f4f;
+    --accent-color: #9b59b6;
+    --border-color: #6a4a6a;
 }
 .theme-dark-red {
-  --primary-bg: #2a1d1d;
-  --secondary-bg: #382828;
-  --sidebar-bg: #4f2f2f;
-  --accent-color: #e74c3c;
-  --border-color: #6a4a4a;
+    --primary-bg: #2a1d1d;
+    --secondary-bg: #382828;
+    --sidebar-bg: #4f2f2f;
+    --accent-color: #e74c3c;
+    --border-color: #6a4a4a;
 }
 .theme-dark-pink {
-  --primary-bg: #2a1d25;
-  --secondary-bg: #382832;
-  --sidebar-bg: #4f2f44;
-  --accent-color: #d83a8b;
-  --border-color: #6a4a5e;
+    --primary-bg: #2a1d25;
+    --secondary-bg: #382832;
+    --sidebar-bg: #4f2f44;
+    --accent-color: #d83a8b;
+    --border-color: #6a4a5e;
 }
 .theme-light-white {
-  --primary-bg: #f4f7f9;
-  --secondary-bg: #ffffff;
-  --sidebar-bg: #e9edf1;
-  --text-color: #333;
-  --text-muted: #7f8c8d;
-  --border-color: #dce4ec;
-  --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --primary-bg: #f4f7f9;
+    --secondary-bg: #ffffff;
+    --sidebar-bg: #e9edf1;
+    --text-color: #333;
+    --text-muted: #7f8c8d;
+    --border-color: #dce4ec;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 .theme-oled-black {
-  --primary-bg: #000000;
-  --secondary-bg: #111111;
-  --sidebar-bg: #1c1c1c;
-  --accent-color: #4a90e2;
-  --border-color: #2e2e2e;
-  --text-muted: #666;
+    --primary-bg: #000000;
+    --secondary-bg: #111111;
+    --sidebar-bg: #1c1c1c;
+    --accent-color: #4a90e2;
+    --border-color: #2e2e2e;
+    --text-muted: #666;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+* { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  background-color: var(--primary-bg);
-  color: var(--text-color);
-  line-height: 1.6;
-  overflow: hidden;
-  transition: background-color 0.3s, color 0.3s;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow: hidden;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .app-container {
-  display: flex;
-  height: 100vh;
+    display: flex;
+    height: 100vh;
 }
 
 .sidebar {
-  width: 350px;
-  background-color: var(--sidebar-bg);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid var(--border-color);
-  transition: all 0.3s ease-in-out; /* Animasyon eklendi */
-  flex-shrink: 0;
+    width: 350px;
+    background-color: var(--sidebar-bg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+    transition: all 0.3s ease-in-out;
+    flex-shrink: 0;
 }
 
 .sidebar-content {
-  flex-grow: 1;
-  overflow-y: auto;
+    flex-grow: 1;
+    overflow-y: auto;
 }
 
 .theme-container {
-  border-top: 1px solid var(--border-color);
-  padding-top: 15px;
-  margin-top: auto;
-  flex-shrink: 0;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+    margin-top: auto;
+    flex-shrink: 0;
 }
 
 .theme-container h2 {
-  text-align: center;
-  margin-bottom: 15px;
-  font-weight: 500;
-  font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 1.2rem;
 }
 
 .theme-swatches {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 }
 
 .swatch {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-  background-color: var(--swatch-color);
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 0 0 2px transparent;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--swatch-color);
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 0 2px transparent;
 }
 
 .swatch:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .swatch.active {
-  box-shadow: 0 0 0 3px var(--accent-color);
+    box-shadow: 0 0 0 3px var(--accent-color);
 }
 
-#sidebar-date-header,
-.reminder-container h2 {
-  text-align: center;
-  margin-bottom: 15px;
-  font-weight: 500;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 10px;
-  font-size: 1.4rem;
+#sidebar-date-header, .reminder-container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 500;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    font-size: 1.4rem;
 }
 
 .calendar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .calendar-header button {
-  background: none;
-  border: none;
-  color: var(--text-color);
-  cursor: pointer;
-  font-size: 1.2rem;
-  padding: 5px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 5px;
 }
 
-.calendar-weekdays,
-.calendar-days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  text-align: center;
-  gap: 5px;
+.calendar-weekdays, .calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    gap: 5px;
 }
 
 .calendar-weekdays {
-  font-weight: bold;
-  margin-bottom: 10px;
-  font-size: 0.9em;
-  color: var(--text-muted);
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    color: var(--text-muted);
 }
 
 .calendar-day {
-  padding: 8px 0;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background-color 0.2s, color 0.2s, border 0.2s;
-  border: 2px solid transparent;
-  position: relative; /* Hatırlatıcı noktası için */
+    padding: 8px 0;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.2s, color 0.2s, border 0.2s;
+    border: 2px solid transparent;
+    position: relative;
 }
 
 .calendar-day.empty {
-  cursor: default;
-  background: none !important;
-  border-color: transparent;
+    cursor: default;
+    background: none !important;
+    border-color: transparent;
 }
 
 .calendar-day:not(.empty):not(.active):not(.today):hover {
-  background-color: var(--border-color);
+    background-color: var(--border-color);
 }
 
 .calendar-day.today {
-  background-color: var(--success-color);
-  color: white;
+    background-color: var(--success-color);
+    color: white;
 }
 
 .calendar-day.active {
-  border-color: var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 .calendar-day.has-reminder::after {
-  content: "";
-  position: absolute;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 6px;
-  height: 6px;
-  background-color: var(--warning-color);
-  border-radius: 50%;
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: var(--warning-color);
+    border-radius: 50%;
 }
 
 .reminder-container {
-  padding-top: 20px;
+    padding-top: 20px;
 }
 
 #reminder-text {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid var(--border-color);
-  background-color: var(--primary-bg);
-  color: var(--text-color);
-  margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    margin-bottom: 10px;
 }
 
 .reminder-info {
-  font-size: 0.8em;
-  color: var(--text-muted);
-  text-align: center;
-  margin-bottom: 15px;
+    font-size: 0.8em;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 #set-reminder-btn {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
-  background-color: var(--warning-color);
-  color: #1a1a2e;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--warning-color);
+    color: #1a1a2e;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .main-content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-  overflow-y: hidden;
-  position: relative; /* Sidebar toggle butonu için */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    overflow-y: hidden;
 }
 
 header {
-  margin-bottom: 20px;
-  position: relative;
-  text-align: center;
-  display: flex; /* Buton ve başlıkları hizalamak için */
-  flex-direction: column;
-  align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-center {
+    text-align: center;
 }
 
 #sidebar-toggle-btn {
-  display: none; /* Varsayılan olarak gizli, mobil'de görünür */
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: var(--text-color);
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 10px;
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px;
 }
 
 #current-date-header {
-  font-size: 2.5rem;
-  font-weight: 300;
+    font-size: 2.5rem;
+    font-weight: 300;
 }
 
 #live-clock {
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: var(--text-muted);
-  margin-top: -5px;
-  margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    margin-top: -5px;
+}
+
+#connecting-night-notice {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 5px;
+    height: 1.2em;
 }
 
 #reminder-display-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
 }
 
 .reminder-tag {
-  background-color: var(--warning-color);
-  color: #1a1a2e;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 0.9em;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    background-color: var(--warning-color);
+    color: #1a1a2e;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .delete-reminder-btn {
-  background-color: rgba(0, 0, 0, 0.2);
-  border: none;
-  color: #1a1a2e;
-  cursor: pointer;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  line-height: 20px;
-  transition: background-color 0.3s;
+    background-color: rgba(0,0,0,0.2);
+    border: none;
+    color: #1a1a2e;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 20px;
+    transition: background-color 0.3s;
 }
 
 #notes-container {
-  flex-grow: 1;
-  overflow-y: auto;
-  padding-right: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .note {
-  background-color: var(--secondary-bg);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  transition: all 0.3s;
-  border: 1px solid var(--border-color);
-  display: flex;
-  flex-direction: column;
-  position: relative;
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
 .note:focus-within {
-  box-shadow: 0 0 10px var(--accent-color);
-  border-color: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 .note-content {
-  width: 100%;
-  border: none;
-  padding: 15px;
-  font-family: inherit;
-  font-size: 1rem;
-  resize: vertical;
-  min-height: 100px;
-  outline: none;
-  background-color: transparent;
-  color: var(--text-color);
+    width: 100%;
+    border: none;
+    padding: 15px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 100px;
+    outline: none;
+    background-color: transparent;
+    color: var(--text-color);
 }
 
 .note-content[readonly] {
-  color: var(--text-muted);
+    color: var(--text-muted);
 }
 
 .delete-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: color 0.3s ease, transform 0.2s ease;
-  padding: 5px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 5px;
 }
 
 .action-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 20px;
-  flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    flex-shrink: 0;
 }
 
 .control-btn {
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 #add-note-btn {
-  background-color: var(--accent-color);
-  color: white;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  font-size: 24px;
-  box-shadow: var(--shadow);
+    background-color: var(--accent-color);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 24px;
+    box-shadow: var(--shadow);
 }
 
 .modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
 }
 
 .modal {
-  background-color: var(--secondary-bg);
-  padding: 30px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-  border: 1px solid var(--border-color);
+    background-color: var(--secondary-bg);
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    border: 1px solid var(--border-color);
 }
 
 .modal-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin-top: 20px; /* Butonların üstüne biraz boşluk ekler */
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
 }
 
 .modal-button {
-  padding: 10px 25px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: opacity 0.3s;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.3s;
 }
 
 .modal-button.confirm {
-  background-color: var(--accent-color);
-  color: white;
+    background-color: var(--accent-color);
+    color: white;
 }
 
 .modal-button.cancel {
-  background-color: var(--text-muted);
-  color: var(--primary-bg);
+    background-color: var(--text-muted);
+    color: var(--primary-bg);
 }
 
 .hidden {
-  display: none !important;
+    display: none !important;
 }
 
-/* =========================================== */
-/* === MOBİL UYUMLULUK (MEDIA QUERIES) === */
-/* =========================================== */
-
-/* Tabletler ve Küçük Laptoplar (Max 768px genişlik) */
 @media screen and (max-width: 768px) {
-  .sidebar {
-    width: 300px;
-    position: fixed;
-    height: 100vh;
-    z-index: 100;
-    transform: translateX(-100%); /* Başlangıçta gizle */
-    box-shadow: var(--shadow);
-  }
+    .sidebar {
+        width: 300px;
+        position: fixed;
+        height: 100vh;
+        z-index: 100;
+        transform: translateX(-100%);
+        box-shadow: var(--shadow);
+    }
 
-  .sidebar.open {
-    transform: translateX(0); /* Açıldığında göster */
-  }
+    .sidebar.open {
+        transform: translateX(0);
+    }
 
-  .app-container {
-    flex-direction: column; /* Mobil'de dikey sıralama */
-  }
+    .app-container {
+        flex-direction: column;
+    }
 
-  .main-content {
-    padding: 15px; /* Daha küçük padding */
-    overflow-y: auto; /* Ana içerik kaydırılabilir */
-    position: relative;
-  }
+    .main-content {
+        padding: 15px;
+        overflow-y: auto;
+    }
 
-  header {
-    flex-direction: row; /* Başlık ve saat yan yana */
-    justify-content: space-between; /* Boşlukları ayır */
-    align-items: center;
-    margin-bottom: 15px;
-    text-align: left;
-  }
+    header {
+        justify-content: space-between;
+        width: 100%;
+    }
 
-  #sidebar-toggle-btn {
-    display: block; /* Menü butonunu göster */
-    position: static; /* Static konuma getir */
-    transform: none;
-    order: -1; /* En başa al */
-    margin-right: 15px;
-  }
+    .header-center {
+        flex-grow: 1;
+    }
 
-  #current-date-header {
-    font-size: 1.8rem; /* Daha küçük font */
-    margin: 0;
-  }
+    #sidebar-toggle-btn {
+        display: block;
+        position: static;
+        transform: none;
+        padding: 10px;
+    }
 
-  #live-clock {
-    font-size: 1.2rem;
-    margin: 0;
-  }
+    #current-date-header {
+        font-size: 1.8rem;
+    }
 
-  #reminder-display-container {
-    position: static; /* Statik konuma getir */
-    justify-content: flex-start;
-    margin-top: 10px;
-    width: 100%;
-  }
+    #live-clock {
+        font-size: 1.2rem;
+    }
+    
+    #connecting-night-notice {
+        height: auto;
+    }
 
-  #notes-container {
-    padding-right: 0; /* Sağ padding'i kaldır */
-  }
+    #reminder-display-container {
+        position: static;
+        order: 1;
+        margin-top: 10px;
+        width: 100%;
+        justify-content: center;
+    }
 
-  .note-content {
-    min-height: 80px; /* Notların minimum yüksekliğini azalt */
-  }
+    #notes-container {
+        padding-right: 0;
+    }
+    
+    .note-content {
+        min-height: 80px;
+    }
 
-  .action-buttons {
-    padding-top: 15px;
-    position: sticky; /* Sabit durmasını sağlar */
-    bottom: 0;
-    background-color: var(--primary-bg);
-    z-index: 50;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-    padding-bottom: 15px;
-  }
+    .action-buttons {
+        padding-top: 15px;
+        position: sticky;
+        bottom: 0;
+        background-color: var(--primary-bg);
+        z-index: 50;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+        padding-bottom: 15px;
+    }
 
-  #add-note-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-  }
+    #add-note-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
 
-  .modal {
-    padding: 20px;
-  }
+    .modal {
+        padding: 20px;
+    }
 
-  .modal-buttons {
-    flex-direction: column; /* Butonları alt alta sırala */
-    gap: 10px;
-  }
+    .modal-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
 
-  .modal-button {
-    width: 100%;
-  }
+    .modal-button {
+        width: 100%;
+    }
 }
 
-/* Küçük Telefonlar (Max 480px genişlik) */
 @media screen and (max-width: 480px) {
-  .sidebar {
-    width: 100%; /* Tam genişlikte açılır */
-  }
+    .sidebar {
+        width: 100%;
+    }
 
-  header {
-    padding-bottom: 10px;
-  }
+    header {
+        padding-bottom: 10px;
+    }
 
-  #current-date-header {
-    font-size: 1.5rem;
-  }
+    #current-date-header {
+        font-size: 1.5rem;
+    }
 
-  #live-clock {
-    font-size: 1rem;
-  }
+    #live-clock {
+        font-size: 1rem;
+    }
 
-  #sidebar-toggle-btn {
-    font-size: 1.3rem;
-    margin-right: 10px;
-  }
+    #sidebar-toggle-btn {
+        font-size: 1.3rem;
+    }
 
-  .calendar-weekdays,
-  .calendar-days {
-    gap: 3px;
-    font-size: 0.8em;
-  }
+    .calendar-weekdays, .calendar-days {
+        gap: 3px;
+        font-size: 0.8em;
+    }
 
-  .calendar-day {
-    padding: 6px 0;
-  }
+    .calendar-day {
+        padding: 6px 0;
+    }
 
-  .note-content {
-    font-size: 0.9rem;
-  }
-
-  .reminder-tag {
-    font-size: 0.8em;
-    padding: 4px 8px;
-  }
+    .note-content {
+        font-size: 0.9rem;
+    }
+    
+    .reminder-tag {
+        font-size: 0.8em;
+        padding: 4px 8px;
+    }
 }
